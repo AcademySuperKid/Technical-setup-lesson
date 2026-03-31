@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентация Академии SuperKid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<div class="presentation-container">
+
+    <img src="img/gates-background.png" alt="Академия SuperKid" id="academy-bg-layer" class="academy-bg-style">
+
+    <div class="logo-badge">SuperKid</div>
+
+    <div id="global-mascot" class="mascot-inside" style="display: none;">
+        <img src="img/mascot-fox.png" alt="Фоксик">
+    </div>
+
+    <div id="slide-intro" class="intro-overlay-text" onclick="openGates()">
+        <div class="intro-text">
+            <h1 style="font-size: 5rem; margin-bottom: 20px; color: var(--text-dark);">Академия <span style="color: var(--accent-green);">SuperKid</span></h1>
+            
+            <p class="pulse-text" style="font-size: 1.8rem; background: #ffffff; padding: 15px 40px; border-radius: 30px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">Кликни, чтобы войти!</p>
+        </div>
+    </div>
+
+    <div class="slide transparent-bg" id="slide-1">
+        <h1 style="font-size: 4rem; color: var(--text-dark); margin-top: -200px;">Добро <span>пожаловать!</span></h1>
+        
+        <p style="color: var(--text-dark); font-weight: 700; background: rgba(255,255,255,1); padding: 10px 20px; border-radius: 15px; display: inline-block;">Я твой помощник — супергеройский рыжий лис Фоксик! Готов стать настоящим профи?</p>
+        
+        <div class="foxy-positioner-slide1">
+            <img src="img/mascot-center.png" alt="Фоксик" class="foxy-slide1-img">
+        </div>
+    </div>
+
+    <div class="slide" id="slide-2">
+        <h1>Что нас ждет <span>сегодня?</span></h1>
+        <p>План нашего первого занятия, чтобы стать настоящей командой:</p>
+        
+        <div class="cards-container">
+            <div class="info-card step-card">
+                <div class="card-step-num">1</div>
+                <div class="card-icon">👋</div>
+                <h3>Познакомимся</h3>
+                <p>Узнаем друг друга получше и найдем новых друзей.</p>
+            </div>
+            <div class="info-card step-card">
+                <div class="card-step-num">2</div>
+                <div class="card-icon">📜</div>
+                <h3>Правила</h3>
+                <p>Обсудим правила наших занятий, чтобы всем было комфортно.</p>
+            </div>
+            <div class="info-card step-card">
+                <div class="card-step-num">3</div>
+                <div class="card-icon">⚙️</div>
+                <h3>Проверим технику</h3>
+                <p>Настроим всё, чтобы быть на 100% готовыми к следующим урокам!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-3">
+        <h1>Давай <span>знакомиться!</span></h1>
+        <p>Крутишь рулетку ➡ Отвечаешь на вопрос ➡ <b>Сам выбираешь</b> следующего участника и называешь его имя!</p>
+        
+        <div class="roulette-container">
+            <div class="wheel-box">
+                <div class="wheel-pointer"></div>
+                <div class="wheel" id="wheel"></div>
+                <button class="wheel-center-btn" onclick="spinWheel()" id="spin-btn">СТАРТ</button>
+            </div>
+            
+            <div class="question-box" id="q-box">
+                <p id="question-display" class="question-text">Жми СТАРТ и передавай эстафету! 🎯</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-4">
+        <h1>Как проходят <span>наши уроки?</span></h1>
+        <p>Мы занимаемся в дружной команде! Вы всегда видите и слышите друг друга.</p>
+        
+        <div class="cards-container" style="margin-top: 20px;">
+            <div class="info-card">
+                <div class="card-icon">👩‍🏫</div>
+                <h3>Теория</h3>
+                <p>Преподаватель всё понятно объясняет и показывает на экране.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">💻</div>
+                <h3>Практика</h3>
+                <p>Мы вместе выполняем интересные задания и закрепляем тему.</p>
+            </div>
+            <div class="info-card">
+                <div class="card-icon">🎬</div>
+                <h3>Материалы</h3>
+                <p>После урока отправляем видео с разбором задания. Обязательно посмотри его!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-5">
+        <h1 style="margin-bottom: 20px;">Твоя <span>панель управления</span></h1>
+        <p>Внизу экрана находится панель со всеми нужными инструментами. Сейчас мы разберем каждую кнопку!</p>
+        
+        <div class="toolbar-wrapper" style="transform: scale(1.3); margin-top: 80px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+            <img src="img/toolbar.png" alt="Панель инструментов Jitsi" class="toolbar-img">
+        </div>
+    </div>
+
+    <div class="slide" id="slide-6">
+        <h1>Правило №1: <span>Микрофон</span></h1>
+        <p>Чтобы не было эха и шума, <b>микрофоны у всех выключены</b>. Включаем его, только когда преподаватель назвал твое имя или идет обсуждение!</p>
+        
+        <div class="jitsi-status-block">
+            <div class="jitsi-status-item">
+                <img src="img/mic-off.jpeg" alt="Микрофон выключен">
+                <p>Микрофон <span>ВЫКЛЮЧЕН</span></p>
+            </div>
+            <div class="jitsi-status-item">
+                <img src="img/mic-on.jpeg" alt="Микрофон включен">
+                <p>Микрофон <span>ВКЛЮЧЕН</span></p>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <div class="practice-label">ПРАКТИКА</div>
+            <p>Найди кнопку микрофона, <b>включи его</b>, а затем сразу <b>выключи обратно</b>. Проверим!</p>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-7">
+        <h1>Правило №2: <span>Ладошка</span></h1>
+        <p>Мы уважаем друг друга и не перебиваем. Знаешь ответ или есть вопрос — жми <b>Ладошку</b>.</p>
+        
+        <div class="jitsi-status-block">
+            <div class="jitsi-status-item" style="width: 280px;">
+                <img src="img/hand.jpeg" alt="Ладошка">
+                <p>Нажми, чтобы<br><span>ПОДНЯТЬ РУКУ</span></p>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <div class="practice-label">ПРАКТИКА</div>
+            <p>Давайте потренируемся! Нажми на Ладошку, чтобы поднять руку, и нажми еще раз, чтобы опустить.</p>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-8">
+        <h1>Правило №3: <span>Чат</span></h1>
+        <p>Если нужно написать текстом, ответить на вопрос или отправить ссылку — открывай <b>Чат</b>.</p>
+        
+        <div class="jitsi-status-block">
+            <div class="jitsi-status-item" style="width: 280px;">
+                <img src="img/chat.png" alt="Чат">
+                <p>Открыть <span>ЧАТ</span></p>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <div class="practice-label">ПРАКТИКА</div>
+            <p>Открой Чат прямо сейчас и отправь туда свой любимый смайлик! 🦊🚀😎</p>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-9">
+        <h1>Как увидеть <span>всех?</span></h1>
+        <p>Чтобы увидеть всех учеников сразу or найти демонстрацию преподавателя, используй <b>Режим плитки</b> (4 квадратика).</p>
+        
+        <div class="jitsi-status-block">
+            <div class="jitsi-status-item" style="width: 280px;">
+                <img src="img/tile-view.png" alt="Режим плитки">
+                <p>Режим <span>ПЛИТКИ</span></p>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <div class="practice-label">ПРАКТИКА</div>
+            <p>Найди кнопку с четырьмя квадратиками и нажми на неё. Посмотри, как меняется экран!</p>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-10">
+        <h1>Наша суперсила — <span>Показ экрана</span></h1>
+        <p>Так преподаватель видит, как ты делаешь задание, и может быстрее прийти на помощь!</p>
+
+        <div class="screen-share-steps-grid" style="margin-top: 40px;">
+            <div class="jitsi-status-item" style="width: 240px; z-index: 2;">
+                <img src="img/share-icon.jpeg" alt="Иконка экрана">
+                <p>1. Нажми кнопку<br><span style="color:var(--text-dark);">ПОКАЗАТЬ ЭКРАН</span></p>
+            </div>
+            <div style="font-size: 3rem; color: var(--accent-green); z-index: 2;">➡</div>
+            
+            <div class="jitsi-status-item modal-item zoom-container">
+                <div class="zoom-hint">👆 Кликни для увеличения</div>
+                <img src="img/share-modal.png" alt="Окно выбора экрана" class="zoomable-img" onclick="toggleZoom(this)">
+                <p style="font-size: 1rem; text-align: left; font-weight: normal; line-height: 1.4;">2. Выбери вкладку "Весь экран", <b>кликни на картинку</b> своего экрана по центру, а затем нажми «Поделиться».</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-11">
+        <h1>Время <span>показать экран!</span></h1>
+        <p>Теперь самое важное задание. Давайте проверим, как всё работает!</p>
+        
+        <div class="practice-box" style="transform: scale(1.1); margin-top: 40px;">
+            <div class="practice-label">ПРАКТИКА</div>
+            <p style="font-size: 1.6rem;">Сейчас <b>каждый по очереди</b> включит демонстрацию экрана. Ждем команду преподавателя, кто будет первым!</p>
+        </div>
+    </div>
+
+    <div class="slide" id="slide-12">
+        <h1 style="font-size: 5rem;">Вы <span>готовы!</span></h1>
+        <p style="font-size: 1.8rem;">Все инструменты проверены, Фоксик в команде. Начинаем наше первое IT-путешествие!</p>
+        <button class="btn-main" style="margin-top: 30px;" onclick="fireConfetti()">ПОЕХАЛИ! 🚀</button>
+    </div>
+
+    <div id="nav-controls" class="nav-container" style="display: none;">
+        <button class="nav-btn nav-left" id="btn-prev" onclick="prevSlide()">◀</button>
+        <div id="slide-counter" class="slide-counter">1 / 12</div>
+        <button class="nav-btn nav-right" id="btn-next" onclick="nextSlide()">▶</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

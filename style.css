@@ -1,0 +1,312 @@
+:root {
+  --white: #ffffff;
+  --text-dark: #2f3542;
+  --text-muted: #57606f;
+  
+  --accent-green: #2ed573;
+  --accent-dark: #26b15f;
+  --accent-light: #e8f9ef;
+  --accent-red: #ff4757;
+  --accent-yellow: #fbc531;
+  
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-dark);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1dd1a1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.presentation-container {
+  width: 1200px;
+  height: 780px;
+  background: var(--white);
+  border-radius: 40px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* === ГЛОБАЛЬНЫЙ ФОН АКАДЕМИИ === */
+.academy-bg-style {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; 
+    transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease;
+    transform: scale(1) translateY(0); 
+    opacity: 1;
+}
+
+.academy-bg-style.final-zoom {
+    /* Приближение и поднятие вверх на 50px */
+    transform: scale(1.68) translateY(-50px); 
+}
+
+.logo-badge {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: var(--white);
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-green);
+    letter-spacing: 1px;
+    z-index: 200;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 2px solid var(--accent-light);
+}
+
+.mascot-inside {
+    position: absolute;
+    bottom: -10px;
+    left: 40px;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+    pointer-events: none; 
+}
+.mascot-inside img {
+    height: 180px; 
+    object-fit: contain;
+    animation: mascotIdle 4s ease-in-out infinite;
+}
+@keyframes mascotIdle {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* === СЛАЙДЫ === */
+.slide {
+  flex-grow: 1;
+  padding: 40px 120px; 
+  display: none !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(0.98);
+  height: 100%;
+  position: relative; 
+  z-index: 5; 
+  background: var(--white); 
+}
+.slide.active { display: flex !important; opacity: 1; transform: scale(1); }
+
+/* Слайд №1: Тень для заголовка */
+#slide-1 h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.slide.transparent-bg {
+    background: transparent !important;
+}
+
+h1 { font-size: 3.5rem; font-weight: 900; margin: 0 0 15px 0; line-height: 1.2; }
+h1 span { color: var(--accent-green); }
+p { font-size: 1.4rem; color: var(--text-muted); line-height: 1.5; max-width: 800px; margin: 0 0 30px 0; }
+
+/* === СТАРТОВЫЙ ОВЕРЛЕЙ === */
+.intro-overlay-text {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 150; 
+    display: flex; justify-content: center; align-items: center; cursor: pointer;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+    background: transparent; 
+}
+.intro-text {
+    position: relative; z-index: 151; text-align: center; pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Старт: Тень для заголовка Академии */
+.intro-overlay-text .intro-text h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.pulse-text { animation: pulseText 2s infinite; font-weight:bold; color: var(--text-dark); }
+@keyframes pulseText { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+/* === ПОЗИЦИОНИРОВАНИЕ ЛИСЁНКА НА СЛАЙДЕ 1 === */
+.foxy-positioner-slide1 {
+    position: absolute;
+    bottom: 110px;  
+    left: 48%;    
+    height: 171px; 
+    z-index: 10;   
+    transform: translateX(-50%); 
+    pointer-events: none; 
+}
+.foxy-slide1-img { 
+    height: 100%; 
+    width: auto;
+    object-fit: contain; 
+    animation: float-slide1 4s ease-in-out infinite; 
+}
+
+@keyframes float-slide1 { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-5px); } 
+}
+
+/* === НАВИГАЦИЯ === */
+.nav-container {
+    position: absolute; bottom: 30px; left: 0; width: 100%;
+    display: flex; justify-content: center; align-items: center; gap: 30px;
+    z-index: 50;
+}
+.nav-btn {
+    background: var(--accent-light); color: var(--accent-green);
+    border: 3px solid var(--accent-light); width: 60px; height: 60px;
+    border-radius: 50%; font-size: 1.8rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+}
+.nav-btn:hover { background: var(--accent-green); color: var(--white); border-color: var(--accent-green); transform: scale(1.1); }
+.slide-counter { font-size: 1.2rem; color: var(--text-muted); font-weight:bold; }
+
+/* === КАРТОЧКИ === */
+.cards-container { display: flex; gap: 30px; margin-top: 10px; width: 100%; justify-content: center; }
+.info-card {
+    background: var(--white); padding: 30px 20px; border-radius: 30px;
+    flex: 1; max-width: 280px; box-shadow: var(--shadow); border: 2px solid var(--accent-light);
+    transition: 0.3s; position: relative;
+}
+.info-card:hover { transform: translateY(-10px); border-color: var(--accent-green); }
+.card-icon { font-size: 4rem; margin-bottom: 15px; }
+.info-card h3 { font-size: 1.4rem; margin: 0 0 10px 0; color: var(--text-dark); }
+.info-card p { font-size: 1.1rem; margin: 0; line-height: 1.4; }
+.card-step-num {
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    background: var(--accent-yellow); color: white; width: 40px; height: 40px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: 900; border: 4px solid var(--white); box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* === РУЛЕТКА ВОПРОСОВ === */
+.roulette-container { display: flex; align-items: center; gap: 60px; margin-top: 20px; }
+.wheel-box { position: relative; width: 320px; height: 320px; }
+.wheel {
+    width: 100%; height: 100%; border-radius: 50%;
+    background: conic-gradient( #ff4757 0deg 45deg, #ffa502 45deg 90deg, #eccc68 90deg 135deg, #2ed573 135deg 180deg, #1e90ff 180deg 225deg, #3742fa 225deg 270deg, #9c88ff 270deg 315deg, #ff6b81 315deg 360deg );
+    border: 10px solid var(--white); transition: transform 4s cubic-bezier(0.1, 0.8, 0.2, 1);
+    position: absolute; top: 0; left: 0;
+}
+.wheel-pointer { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 35px solid var(--text-dark); z-index: 10; }
+.wheel-center-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 90px; height: 90px; background: var(--white); border-radius: 50%; z-index: 5;
+    border: 4px solid var(--accent-green); cursor: pointer;
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.2rem; color: var(--accent-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: 0.2s;
+}
+.wheel-center-btn:hover { transform: translate(-50%, -50%) scale(1.1); background: var(--accent-light); }
+
+.question-box {
+    background: var(--white); border: 4px dashed var(--accent-yellow); padding: 40px;
+    border-radius: 30px; width: 450px; min-height: 200px;
+    display: flex; align-items: center; justify-content: center; position: relative; transition: 0.3s;
+}
+.question-box.highlight { background: #fff5e6; border-style: solid; transform: scale(1.05); border-color: var(--accent-yellow);}
+.question-text { font-size: 1.6rem; font-weight: 800; color: var(--text-dark); margin: 0; text-align: center; line-height: 1.4;}
+
+/* === JITSI БЛОКИ === */
+.jitsi-status-block { display: flex; justify-content: center; gap: 40px; width: 100%; margin-bottom: 20px; }
+.jitsi-status-item {
+    background: #2f3542; color: white; border-radius: 20px; padding: 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; width: 220px;
+}
+.jitsi-status-item img { height: 80px; max-width: 100%; object-fit: contain; border-radius: 8px;}
+.jitsi-status-item p { font-size: 1.1rem; color: white; margin: 0; }
+.jitsi-status-item p span { font-weight:bold; color: var(--accent-green);}
+
+/* === ПАНЕЛЬ === */
+.toolbar-wrapper { background: #2f3542; padding: 10px 20px; border-radius: 15px; margin-bottom: 20px; }
+.toolbar-img { height: 50px; max-width: 100%; object-fit: contain;}
+.screen-share-steps-grid { display: flex; justify-content: center; align-items: center; gap: 40px; width: 100%; margin-bottom: 10px;}
+.modal-item { width: 350px; position: relative;}
+
+/* === ИНТЕРАКТИВНОЕ УВЕЛИЧЕНИЕ ПО КЛИКУ === */
+.zoom-container { cursor: zoom-in; z-index: 10;}
+
+.zoomable-img { 
+    height: 120px; max-width: 100%; object-fit: contain; cursor: zoom-in;
+    transition: all 0.3s ease;
+}
+
+.zoomable-img.fullscreen-zoomed {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 1200px !important;
+    height: 780px !important;
+    object-fit: contain !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    z-index: 9999 !important;
+    padding: 60px !important;
+    border-radius: 40px !important;
+    cursor: zoom-out !important;
+    margin: 0 !important;
+}
+
+.zoom-hint {
+    position: absolute; top: -15px; right: -15px;
+    background: var(--accent-yellow); color: white;
+    padding: 5px 10px; border-radius: 10px; font-size: 0.9rem; font-weight: 800;
+    pointer-events: none; z-index: 20; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: slightPulse 2s infinite;
+}
+
+/* === БЛОК ПРАКТИКИ === */
+.practice-box {
+    background: var(--accent-light); border: 3px solid var(--accent-yellow);
+    padding: 25px 40px; border-radius: 20px; position: relative;
+    margin-top: 10px; width: 100%; max-width: 800px;
+    box-shadow: 0 10px 20px rgba(255, 165, 2, 0.15); animation: slightPulse 3s infinite;
+}
+@keyframes slightPulse { 0%, 100% { box-shadow: 0 10px 20px rgba(255, 165, 2, 0.15); } 50% { box-shadow: 0 10px 30px rgba(255, 165, 2, 0.4); } }
+.practice-label {
+    position: absolute; top: -15px; left: 30px; background: var(--accent-yellow); color: white;
+    padding: 5px 15px; border-radius: 10px; font-weight: 900; font-size: 1.1rem;
+}
+.practice-box p { margin: 0; font-size: 1.3rem; color: #b33939; font-weight: 700; }
+
+.btn-main {
+    background: var(--accent-green); color: var(--white); border: none; padding: 20px 60px;
+    font-size: 1.6rem; font-weight: 900; border-radius: 25px; cursor: pointer; transition: 0.3s;
+    font-family: 'Nunito', sans-serif;
+}
+.btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(46, 213, 115, 0.4);}
+
+/* Конфетти */
+.confetti { position: absolute; width: 10px; height: 10px; z-index: 1000; pointer-events: none; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(100vh) rotate(720deg); } }
