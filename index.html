@@ -171,22 +171,30 @@
     </div>
 
     <div class="slide" id="slide-9">
-        <h1>Как увидеть <span>всех?</span></h1>
-        <p>Чтобы увидеть всех учеников сразу or найти демонстрацию преподавателя, используй <b>Режим плитки</b> (4 квадратика).</p>
+        <h1>Как найти <span>преподавателя?</span></h1>
+        <p>Если ты потерял экран с заданием, используй <b>Режим плитки</b> (4 квадратика). Так ты увидишь все экраны сразу!</p>
         
-        <div class="jitsi-status-block">
-            <div class="jitsi-status-item" style="width: 280px;">
+        <div class="screen-share-steps-grid" style="margin-top: 20px;">
+            <div class="jitsi-status-item" style="width: 240px; z-index: 2;">
                 <img src="img/tile-view.png" alt="Режим плитки">
-                <p>Режим <span>ПЛИТКИ</span></p>
+                <p>1. Нажми<br><span>РЕЖИМ ПЛИТКИ</span></p>
+            </div>
+            
+            <div style="font-size: 3rem; color: var(--accent-green); z-index: 2;">➡</div>
+            
+            <div class="jitsi-status-item modal-item zoom-container" style="width: 380px;">
+                <div class="zoom-hint">👆 Кликни для увеличения</div>
+                <img src="img/grid-meeting.png" alt="Сетка учеников" class="zoomable-img" onclick="toggleZoom(this)" style="height: 130px; border-radius: 10px;">
+                <p style="font-size: 1rem; text-align: left; font-weight: normal; line-height: 1.4; margin-top: 10px;">2. Откроются все экраны. Найди здесь преподавателя и <b>дважды кликни по его видео</b>.</p>
             </div>
         </div>
 
-        <div class="practice-box">
+        <div class="practice-box" style="margin-top: 30px;">
             <div class="practice-label">ПРАКТИКА</div>
-            <p>Найди кнопку с четырьмя квадратиками и нажми на неё. Посмотри, как меняется экран!</p>
+            <p>Найди кнопку с четырьмя квадратиками, нажми на неё, найди на экране преподавателя и кликни по нему!</p>
         </div>
     </div>
-
+    
     <div class="slide" id="slide-10">
         <h1>Наша суперсила — <span>Показ экрана</span></h1>
         <p>Так преподаватель видит, как ты делаешь задание, и может быстрее прийти на помощь!</p>
